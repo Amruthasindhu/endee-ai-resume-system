@@ -165,7 +165,7 @@ venv/
 
 ## Author
 
-Amrutha Sindhu
+Amrutha Sindhu ,
 AIML Engineering Student
 
 ## Acknowledgements
