@@ -1,6 +1,15 @@
-from sentence_transformers import SentenceTransformer
+import openai
+import os
+from dotenv import load_dotenv
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def get_embeddings(texts):
-    return model.encode(texts)
+    """Generate embeddings using OpenAI text-embedding-ada-002."""
+    response = openai.Embedding.create(
+        input=texts,
+        model="text-embedding-ada-002"
+    )
+    return [item["embedding"] for item in response["data"]]
