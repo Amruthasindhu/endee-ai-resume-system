@@ -1,0 +1,11 @@
+from PyPDF2 import PdfReader
+
+def extract_text(pdf_file):
+    reader = PdfReader(pdf_file)
+    text = ""
+    
+    for page in reader.pages:
+        if page.extract_text():
+            text += page.extract_text() + "\n"
+    
+    return text
